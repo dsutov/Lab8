@@ -10,6 +10,7 @@ public class ConnectDots extends JFrame implements ActionListener {
 
     private DrawingPanel drawingArea = new DrawingPanel();
     private JButton drawButton = new JButton("Draw");
+    private JButton test = new JButton("Test");
 
     private boolean draw = false;
 
@@ -25,6 +26,7 @@ public class ConnectDots extends JFrame implements ActionListener {
         drawButton.addActionListener(this);
 
         this.add(drawButton);
+        this.add(test);
         this.add(drawingArea);
 
         this.setVisible(true);
