@@ -33,7 +33,7 @@ public class ConnectDots extends JFrame implements ActionListener {
 
     class DrawingPanel extends JPanel implements MouseListener {
 
-        private ArrayList<Point> points = new ArrayList();
+        private ArrayList<Point> points = new ArrayList(); // array to store all the coords
 
         public DrawingPanel()
         {
@@ -47,7 +47,7 @@ public class ConnectDots extends JFrame implements ActionListener {
 
             if(draw)
             {
-                for(int i = 0; i < points.size() - 1; i++)
+                for(int i = 0; i < points.size() - 1; i++) // if draw button is pressed it connects all the dots in the array with a line in order
                 {
                     g.drawLine(points.get(i).x, points.get(i).y, points.get(i+1).x, points.get(i+1).y);
                 }
@@ -57,7 +57,7 @@ public class ConnectDots extends JFrame implements ActionListener {
 
             }
 
-            for(Point p : points)
+            for(Point p : points) //  creates the circle at the mouse pointer
             {
                 g.setColor(Color.RED);
                 g.fillOval(p.x -5, p.y - 5, 10,10);
@@ -75,12 +75,12 @@ public class ConnectDots extends JFrame implements ActionListener {
 
         @Override
         public void mousePressed(MouseEvent e) {
-            System.out.println("mouse has been pressed");
+
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            points.add(new Point(e.getX(), e.getY()));
+            points.add(new Point(e.getX(), e.getY())); //  adds the mouse coords to the array
 
             repaint();
         }

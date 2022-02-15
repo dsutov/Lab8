@@ -38,14 +38,14 @@ public class Q2 extends JFrame implements ActionListener {
         {
             int random = (int)(Math.random()*3);
             System.out.println(random);
-            if(random == 0) {
+            if(random == 0) { // if random is 0 is draws a square
                 return new Rectangle2D.Double(xPos - 25, yPos - 25, 50, 50);
             }
-            else if (random == 1)
+            else if (random == 1) // if random is 1 is draws a rectangle
             {
                 return new Rectangle2D.Double(xPos - 50, yPos - 25, 100, 50);
             }
-            else
+            else // if random is 3 is draws a circle
                 return new Ellipse2D.Double(xPos - 25, yPos - 25, 50, 50);
         }
 
@@ -58,12 +58,12 @@ public class Q2 extends JFrame implements ActionListener {
 
             g2d.setColor(colors[colorTracker]);
 
-            g2d.fill(s);
+            g2d.fill(s); // draws the shape that s is
         }
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
-            if(s.contains(mouseEvent.getPoint())) {
+            if(s.contains(mouseEvent.getPoint())) { // if the shape contains the mouse pointer it changes the color
                 colorTracker = (colorTracker + 1) % colors.length;
                 repaint();
             }
@@ -76,7 +76,7 @@ public class Q2 extends JFrame implements ActionListener {
 
         @Override
         public void mouseReleased(MouseEvent mouseEvent) {
-            s = getRandomShape(mouseEvent.getX(), mouseEvent.getY());
+            s = getRandomShape(mouseEvent.getX(), mouseEvent.getY()); // passes the mouse coords to the method
             repaint();
         }
 
